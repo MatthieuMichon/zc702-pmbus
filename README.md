@@ -145,7 +145,7 @@
 - 0x34: UCD9248PFC (U32)
 - 0x35: UCD9248PFC (U33)
 - 0x36: UCD9248PFC (U34)
-- 0x74: PCA9548 i2c bus mux set to `0x40`
+- 0x74: PCA9548 i2c bus mux set to `0x80`
 
 ```
 0x-- 0 1 2 3 4 5 6 7 8 9 A B C D E F 
