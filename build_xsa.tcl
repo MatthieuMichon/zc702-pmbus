@@ -4,7 +4,7 @@ set vivado_version [version -short]
 
 proc build_2025_1 {} {
 
-    create_project -part xc7z020clg484-1 pmbus_zc702
+    create_project -force -part xc7z020clg484-1 pmbus_zc702
     set_property -dict [ list \
         BOARD_PART xilinx.com:zc702:part0:1.4 \
         SOURCE_MGMT_MODE All] [current_project]

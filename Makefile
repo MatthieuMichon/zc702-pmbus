@@ -1,15 +1,18 @@
 BUILD_DIR := build
+CC := vitis
 SYN := vivado
 SYN_FLAGS := -mode batch -nojournal -notrace -source ../build_xsa.tcl
 
 .PHONY: all
-all: $(BUILD_DIR)/pmbus_zc702.xsa
+all: sw
 
-$(BUILD_DIR)/pmbus_zc702.xsa: $(BUILD_DIR) *.sv *.tcl
+.PHONY: sw
+sw: $(BUILD_DIR)/pmbus_zc702.xsa *.py
+	${CC} -s build_sw.py
+
+$(BUILD_DIR)/pmbus_zc702.xsa: *.sv *.tcl
+	mkdir -p $(BUILD_DIR)
 	cd $(BUILD_DIR) && $(SYN) $(SYN_FLAGS)
-
-$(BUILD_DIR):
-	mkdir -p $@
 
 .PHONY: clean
 clean:
